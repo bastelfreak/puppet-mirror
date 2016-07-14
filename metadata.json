@@ -1,0 +1,40 @@
+{
+  "name": "puppet-mirror",
+  "version": "0.1.0",
+  "summary": "deploys a lod of shellscripts to handle various mirrors",
+  "author": "Tim Meusel",
+  "source": "https://github.com/bastelfreak/puppet-mirror.git",
+  "project_page": "https://github.com/bastelfreak/puppet-mirror",
+  "issues_url": "https://github.com/bastelfreak/puppet-mirror/issues",
+  "license": "AGPL-1.0",
+  "dependencies": [],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Archlinux"
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6.0",
+        "7.0",
+        "8.0"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04",
+        "16.04"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5.0",
+        "6.0",
+        "7.0"
+      ]
+    }
+  ]
+}
