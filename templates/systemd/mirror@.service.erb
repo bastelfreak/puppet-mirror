@@ -3,7 +3,7 @@ Description=mirror %i
 
 [Service]
 Type=simple
-ExecStart=/home/mirror/scripts/%i
+ExecStart=<%= @userhome %>/scripts/%i
 
 [Install]
 WantedBy=multi-user.target
