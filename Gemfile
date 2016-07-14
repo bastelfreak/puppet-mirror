@@ -8,6 +8,7 @@ group :test do
   gem 'metadata-json-lint'
   gem 'puppet-strings'
   gem 'rubocop-rspec'
+  gem 'coveralls'
 end
 
 group :release do

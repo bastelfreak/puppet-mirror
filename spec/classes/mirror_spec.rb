@@ -10,6 +10,7 @@ describe 'mirror', type: :class do
       describe 'with all defaults' do
         it { should compile.with_all_deps }
         it { should contain_class('mirror') }
+        it { should contain_class('mirror::params') }
         it { should contain_file('/home/mirror/scripts/mirror_all').with_ensure('link') }
         it { should contain_file('/home/mirror/scripts/mirror_distributions').with_ensure('link') }
         it { should contain_file('/home/mirror/scripts/mirror_everything_else').with_ensure('link') }
