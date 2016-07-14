@@ -10,12 +10,44 @@ describe 'mirror', type: :class do
       describe 'with all defaults' do
         it { should compile.with_all_deps }
         it { should contain_class('mirror') }
-        it { should contain_file('sync-scripts').with_ensure('directory') }
         it { should contain_file('/home/mirror/scripts/mirror_all').with_ensure('link') }
         it { should contain_file('/home/mirror/scripts/mirror_distributions').with_ensure('link') }
         it { should contain_file('/home/mirror/scripts/mirror_everything_else').with_ensure('link') }
         it { should contain_user('mirror') }
         it { should contain_group('mirror') }
+        sync_sripts = [
+          'sync-archlinux.sh',
+          'sync-autoinstall.plesk.com.sh',
+          'sync-centos.sh',
+          'sync-cpan.sh',
+          'sync-cygwin.sh',
+          'sync-debian.sh',
+          'sync-dell.sh',
+          'sync-elrepo.sh',
+          'sync-epel.sh',
+          'sync-fedora.sh',
+          'sync-foreman.sh',
+          'sync-freebsd.sh',
+          'sync-gentoo.sh',
+          'sync-hpe.sh',
+          'sync-jenkins.sh',
+          'sync-openbsd.sh',
+          'sync-postgresql.sh',
+          'sync-puppet.sh',
+          'sync-repoforge.sh',
+          'sync.sh',
+          'sync-ubuntu.sh',
+        ]
+        sync_sripts.each do |script|
+          it do
+            should contain_file(script).with(
+              'ensure'  => 'file',
+              'owner'   => 'mirror',
+              'group'   => 'mirror',
+              'mode'    => '0755'
+            )
+          end
+        end
       end
     end
   end
