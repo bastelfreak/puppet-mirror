@@ -20,19 +20,19 @@ class mirror::systemd (
   }
 
   file{'mirror@.service':
-    ensure => 'file',
-    path   => '/etc/systemd/system/mirror@.service',
-    source => 'puppet:///modules/mirror/systemd/mirror@.service',
-    mode   => '0644',
-    owner  => 'root',
-    group  => 'root',
+    ensure  => 'file',
+    path    => '/etc/systemd/system/mirror@.service',
+    content => template('mirror/systemd/mirror@.service.erb'),
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
   } ~> Exec['systemctl-daemon-reload']
   file{'mirror@.timer':
-    ensure => 'file',
-    path   => '/etc/systemd/system/mirror@.timer',
-    source => 'puppet:///modules/mirror/systemd/mirror@.service',
-    mode   => '0644',
-    owner  => 'root',
-    group  => 'root',
+    ensure  => 'file',
+    path    => '/etc/systemd/system/mirror@.timer',
+    content => template('mirror/systemd/mirror@.service.erb'),
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
   } ~> Exec['systemctl-daemon-reload']
 }
