@@ -11,11 +11,22 @@ describe 'mirror', type: :class do
         it { should compile.with_all_deps }
         it { should contain_class('mirror') }
         it { should contain_class('mirror::params') }
+        it { should contain_class('mirror::user') }
+        it { should contain_class('mirror::files') }
+        it { should contain_class('mirror::systemd') }
         it { should contain_file('/home/mirror/scripts/mirror_all').with_ensure('link') }
         it { should contain_file('/home/mirror/scripts/mirror_distributions').with_ensure('link') }
         it { should contain_file('/home/mirror/scripts/mirror_everything_else').with_ensure('link') }
+        it { should contain_file('mirror@.service') }
+        it { should contain_file('mirror@.timer') }
         it { should contain_user('mirror') }
         it { should contain_group('mirror') }
+        it { should contain_service('mirror@mirror_all.service') }
+        it { should contain_service('mirror@mirror_all.timer') }
+        it { should contain_service('mirror@mirror_distributions.service') }
+        it { should contain_service('mirror@mirror_distributions.timer') }
+        it { should contain_service('mirror@mirror_everything_else.service') }
+        it { should contain_service('mirror@mirror_everything_else.timer') }
         sync_sripts = [
           'sync-archlinux.sh',
           'sync-autoinstall.plesk.com.sh',
