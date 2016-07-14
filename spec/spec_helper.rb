@@ -4,8 +4,7 @@ require 'coveralls'
 include RspecPuppetFacts
 Coveralls.wear!
 
-
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start do
-    add_filter '/spec/fixtures'
+  add_filter '/spec/fixtures'
 end

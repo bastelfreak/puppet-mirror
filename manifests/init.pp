@@ -12,6 +12,8 @@ class mirror (
   validate_integer($gid)
   validate_integer($uid)
 
+  include ::systemd
+
   class {'::mirror::user': } ->
   class {'::mirror::files': } ->
   class {'::mirror::systemd': }
