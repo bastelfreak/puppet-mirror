@@ -1,4 +1,8 @@
-class mirror {
+# base class to deploy a mirror for a bunch of stuff
+class mirror (
+  $sync_scripts = [],
+  ) {
+
   group{'mirror':
     gid => 1000,
   } ->
