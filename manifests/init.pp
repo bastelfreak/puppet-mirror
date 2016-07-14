@@ -1,34 +1,18 @@
 class mirror (
   $sync_scripts = $mirror::params::sync_scripts,
+  $username     = $mirror::params::username,
+  $groupname    = $mirror::params::groupname,
+  $userhome     = $mirror::params::userhome,
+  $usershell    = $mirror::params::usershell,
+  $gid          = $mirror::params::gid,
+  $uid          = $mirror::params::uid,
 ) inherits mirror::params {
 
   validate_array($sync_scripts)
+  validate_integer($gid)
+  validate_integer($uid)
 
-  group{'mirror':
-    gid => 1000,
-  } ->
-  user{'mirror':
-    ensure     => 'present',
-    managehome => true,
-    home       => '/home/mirror',
-    shell      => '/bin/bash',
-    uid        => 1000,
-    gid        => 1000,
-  }
-  $sync_scripts.each |$script| {
-    file{$script:
-      ensure => 'file',
-      source => "puppet:///modules/mirror/bin/${script}",
-      path   => "/home/mirror/scripts/${script}",
-      owner  => 'mirror',
-      group  => 'mirror',
-      mode   => '0755',
-    }
-  }
-  ['mirror_all', 'mirror_distributions', 'mirror_everything_else'].each |$alias| {
-    file{"/home/mirror/scripts/${alias}":
-      ensure => 'link',
-      source => '/home/mirror/scripts/sync.sh',
-    }
-  }
+  class {'::mirror::user': } ->
+  class {'::mirror::files': } ->
+  class {'::mirror::systemd': }
 }

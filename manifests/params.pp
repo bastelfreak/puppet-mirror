@@ -22,4 +22,10 @@ class mirror::params {
     'sync.sh',
     'sync-ubuntu.sh',
   ]
+  $username = 'mirror'
+  $groupname = 'mirror'
+  $userhome = '/home/mirror'
+  $usershell = '/bin/bash'
+  $gid = 1000
+  $uid = 1000
 }

@@ -1,0 +1,9 @@
+[Unit]
+Description=mirror %i
+
+[Service]
+Type=simple
+ExecStart=/home/mirror/scripts/%i
+
+[Install]
+WantedBy=multi-user.target
