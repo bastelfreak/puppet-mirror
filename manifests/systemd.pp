@@ -5,7 +5,7 @@ class mirror::systemd (
     file{"${userhome}/scripts/${script}":
       ensure  => 'link',
       source  => "${userhome}/scripts/sync.sh",
-      require => [File['mirror@.service'], File['mirror@.timer']]
+      require => [File['mirror@.service'], File['mirror@.timer']],
     }
     service{"mirror@${script}.service":
       ensure  => 'stopped',
