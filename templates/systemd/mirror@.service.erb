@@ -4,6 +4,8 @@ Description=mirror %i
 [Service]
 Type=simple
 ExecStart=<%= @userhome %>/scripts/%i
+User=<%= @username %>
+Group=<%= @usergroup %>
 
 [Install]
 WantedBy=multi-user.target
