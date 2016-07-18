@@ -1,5 +1,7 @@
 class mirror::systemd (
-  $userhome = $mirror::userhome,
+  $userhome  = $mirror::userhome,
+  $username  = $mirror::username,
+  $groupname = $mirror::groupname,
 ) {
   ['mirror_all', 'mirror_distributions', 'mirror_everything_else'].each |$script| {
     service{"mirror@${script}.service":
