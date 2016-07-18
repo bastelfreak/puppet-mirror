@@ -3,7 +3,7 @@ Description=mirror %i
 
 [Service]
 Type=simple
-ExecStart=<%= @userhome %>/scripts/%i
+ExecStart=<%= @userhome %>/scripts/sync.sh %i
 User=<%= @username %>
 Group=<%= @usergroup %>
 
