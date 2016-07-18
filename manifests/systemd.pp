@@ -2,11 +2,6 @@ class mirror::systemd (
   $userhome = $mirror::userhome,
 ) {
   ['mirror_all', 'mirror_distributions', 'mirror_everything_else'].each |$script| {
-    file{"${userhome}/scripts/${script}":
-      ensure  => 'link',
-      source  => "${userhome}/scripts/sync.sh",
-      require => [File['mirror@.service'], File['mirror@.timer']],
-    }
     service{"mirror@${script}.service":
       ensure  => 'stopped',
       enable  => true,
