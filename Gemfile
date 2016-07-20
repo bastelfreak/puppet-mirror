@@ -9,6 +9,7 @@ group :test do
   gem 'puppet-strings'
   gem 'rubocop-rspec'
   gem 'coveralls'
+  gem 'codeclimate-test-reporter'
   gem 'puppet-lint-absolute_classname-check'
   gem 'puppet-lint-leading_zero-check'
   gem 'puppet-lint-trailing_comma-check'
