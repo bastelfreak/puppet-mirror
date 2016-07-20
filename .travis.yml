@@ -15,3 +15,6 @@ matrix:
     env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=rubocop
   - rvm: 2.3.1
     env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=test
+addons:
+  code_climate:
+    repo_token: d1136826acdf477d97daef036acfb77402728f261d664800513c2521a01a05c0
