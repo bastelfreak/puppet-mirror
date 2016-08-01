@@ -43,7 +43,7 @@ mirror_distributions() {
 mirror_everything_else() {
   # We really need a rubygems mirror, but this should probably be solved in another way
   # we could mirror cpan, but we do not really use it
-  for sync_script in cygwin dell foreman hpe jenkins postgresql puppet autoinstall.plesk.com; do
+  for sync_script in cygwin dell foreman hpe jenkins postgresql puppet autoinstall.plesk.com zabbix; do
     sync_script="${SCRIPTS_DIR}/sync-${sync_script}.sh"
     mirror "$sync_script"
   done

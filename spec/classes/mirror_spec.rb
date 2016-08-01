@@ -46,6 +46,7 @@ describe 'mirror', type: :class do
           'sync-repoforge.sh',
           'sync.sh',
           'sync-ubuntu.sh',
+          'sync-zabbix.sh',
         ]
         sync_sripts.each do |script|
           it do

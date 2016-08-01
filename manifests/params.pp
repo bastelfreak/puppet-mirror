@@ -21,6 +21,7 @@ class mirror::params {
     'sync-repoforge.sh',
     'sync.sh',
     'sync-ubuntu.sh',
+    'sync-zabbix.sh',
   ]
   $username = 'mirror'
   $groupname = 'mirror'
