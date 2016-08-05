@@ -47,6 +47,7 @@ describe 'mirror', type: :class do
           'sync.sh',
           'sync-ubuntu.sh',
           'sync-zabbix.sh',
+          'sync-alpine.sh',
         ]
         sync_sripts.each do |script|
           it do
