@@ -22,6 +22,7 @@ class mirror::params {
     'sync.sh',
     'sync-ubuntu.sh',
     'sync-zabbix.sh',
+    'sync-alpine.sh',
   ]
   $username = 'mirror'
   $groupname = 'mirror'
