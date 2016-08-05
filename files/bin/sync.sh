@@ -34,7 +34,7 @@ mirror_all(){
 mirror_distributions() {
   # after some tests we could add freebsd and openbsd, they need a huge amount of diskspace
   # also currently probably nobody uses it
-  for sync_script in centos debian epel elrepo fedora gentoo repoforge ubuntu virtuozzo parallels; do
+  for sync_script in centos debian epel elrepo fedora gentoo repoforge ubuntu virtuozzo parallels alpine; do
     sync_script="${SCRIPTS_DIR}/sync-${sync_script}.sh"
     mirror "$sync_script"
   done
